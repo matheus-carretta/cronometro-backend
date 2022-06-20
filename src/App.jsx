@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import audio from './audios';
 
 function App() {
   const [timer, setTimer] = useState(6);
