@@ -1,5 +1,9 @@
 import React, { useState, useRef } from 'react';
 import audio from './audios';
+import getDay from './utils/getDay';
+
+const arrayAudios = [audio.sextou, audio.segundou, audio.tercou,
+  audio.quartou, audio.quintou, audio.sextou, audio.sextou];
 
 function App() {
   const [timer, setTimer] = useState(6);
@@ -12,6 +16,9 @@ function App() {
       window.clearInterval(increment.current);
       setIsPaused(false);
       setIsActive(false);
+      setTimer(600);
+      const music = new Audio(arrayAudios[getDay()]);
+      music.play();
     }
   }, [timer]);
 
