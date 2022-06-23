@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import audio from './audios';
 import getDay from './utils/getDay';
+import Header from './components/Header';
 
 const arrayAudios = [audio.sextou, audio.segundou, audio.tercou,
   audio.quartou, audio.quintou, audio.sextou, audio.sextou];
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <div className="app">
-      <h3>React Stopwatch</h3>
+      <Header />
       <div className="stopwatch-card">
         <p>{formatTime()}</p>
         <div className="buttons">
