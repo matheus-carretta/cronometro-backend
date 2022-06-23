@@ -1,0 +1,30 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box
+}
+
+main {
+  background-color: #0E0B16;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+
+header, footer {
+  height: 10vh;
+  width: 100vw;
+  background-color: #1E392A;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1, h2, h3, p {
+  color: white;
+}
