@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import audio from './audios';
 import getDay from './utils/getDay';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 const arrayAudios = [audio.sextou, audio.segundou, audio.tercou,
   audio.quartou, audio.quintou, audio.sextou, audio.sextou];
@@ -69,6 +70,7 @@ function App() {
           <button type="button" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
