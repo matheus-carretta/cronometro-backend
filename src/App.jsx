@@ -8,7 +8,7 @@ const arrayAudios = [audio.sextou, audio.segundou, audio.tercou,
   audio.quartou, audio.quintou, audio.sextou, audio.sextou];
 
 function App() {
-  const [timer, setTimer] = useState(6);
+  const [timer, setTimer] = useState(600);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const increment = useRef(null);
