@@ -8,13 +8,13 @@ const arrayAudios = [audio.sextou, audio.segundou, audio.tercou,
 function App() {
   const [timer, setTimer] = useState(6);
   const [isActive, setIsActive] = useState(false);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
   const increment = useRef(null);
 
   React.useEffect(() => {
     if (timer === 0) {
       window.clearInterval(increment.current);
-      setIsPaused(false);
+      setIsPaused(true);
       setIsActive(false);
       setTimer(600);
       const music = new Audio(arrayAudios[getDay()]);
@@ -24,7 +24,7 @@ function App() {
 
   const handleStart = () => {
     setIsActive(true);
-    setIsPaused(true);
+    setIsPaused(false);
     increment.current = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
     }, 1000);
@@ -32,21 +32,8 @@ function App() {
 
   const handlePause = () => {
     clearInterval(increment.current);
-    setIsPaused(false);
-  };
-
-  const handleResume = () => {
     setIsPaused(true);
-    increment.current = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-    }, 1000);
-  };
-
-  const handleReset = () => {
-    clearInterval(increment.current);
     setIsActive(false);
-    setIsPaused(false);
-    setTimer(600);
   };
 
   const formatTime = () => {
@@ -59,9 +46,8 @@ function App() {
   };
 
   const renderButtons = () => {
-    if (!isActive && !isPaused) return <button type="button" onClick={handleStart}>Start</button>;
-    if (isPaused) return <button type="button" onClick={handlePause}>Pause</button>;
-    return <button type="button" onClick={handleResume}>Resume</button>;
+    if (!isActive && isPaused) return <button type="button" onClick={handleStart}>Start</button>;
+    return <button type="button" onClick={handlePause}>Pause</button>;
   };
 
   return (
@@ -73,8 +59,13 @@ function App() {
           {
             renderButtons()
           }
-          <button type="button" onClick={handleReset} disabled={!isActive}>Reset</button>
-          <button type="button" onClick={() => setTimer(600)}>Teste</button>
+        </div>
+        <div className="timer-buttons">
+          <button type="button" onClick={() => setTimer(600)} disabled={isActive}>10 minutos</button>
+          <button type="button" onClick={() => setTimer(480)} disabled={isActive}>8 minutos</button>
+          <button type="button" onClick={() => setTimer(420)} disabled={isActive}>7 minutos</button>
+          <button type="button" onClick={() => setTimer(300)} disabled={isActive}>5 minutos</button>
+          <button type="button" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
         </div>
       </div>
     </div>
