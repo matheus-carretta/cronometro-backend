@@ -72,6 +72,7 @@ header h2 {
   display: flex;
   flex-wrap: wrap;
   max-width: 40%;
+  max-height: 40%;
 }
 
 button {
