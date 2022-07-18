@@ -49,8 +49,8 @@ function App() {
   };
 
   const renderButtons = () => {
-    if (!isActive && isPaused) return <button type="button" onClick={handleStart}>Start</button>;
-    return <button type="button" onClick={handlePause}>Pause</button>;
+    if (!isActive && isPaused) return <button type="button" className="start" onClick={handleStart}>Start</button>;
+    return <button type="button" className="start" onClick={handlePause}>Pause</button>;
   };
 
   return (
@@ -58,18 +58,18 @@ function App() {
       <div className="container">
         <Header />
         <div className="stopwatch-card">
-          <p>{formatTime()}</p>
+          <p className="timer">{formatTime()}</p>
+          <div className="timer-buttons">
+            <button type="button" className="btn10" onClick={() => setTimer(600)} disabled={isActive}>10 minutos</button>
+            <button type="button" className="btn8" onClick={() => setTimer(480)} disabled={isActive}>8 minutos</button>
+            <button type="button" className="btn7" onClick={() => setTimer(420)} disabled={isActive}>7 minutos</button>
+            <button type="button" className="btn5" onClick={() => setTimer(300)} disabled={isActive}>5 minutos</button>
+            <button type="button" className="btn2" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
+          </div>
           <div className="buttons">
             {
             renderButtons()
           }
-          </div>
-          <div className="timer-buttons">
-            <button type="button" onClick={() => setTimer(600)} disabled={isActive}>10 minutos</button>
-            <button type="button" onClick={() => setTimer(480)} disabled={isActive}>8 minutos</button>
-            <button type="button" onClick={() => setTimer(420)} disabled={isActive}>7 minutos</button>
-            <button type="button" onClick={() => setTimer(300)} disabled={isActive}>5 minutos</button>
-            <button type="button" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
           </div>
         </div>
         <Footer />

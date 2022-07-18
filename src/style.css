@@ -18,6 +18,7 @@ header, footer {
   background-color: #1E392A;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -27,4 +28,110 @@ header, footer {
 
 h1, h2, h3, p {
   color: white;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+header h1 {
+  font-size: 2.2em;
+  margin-left: 100px;
+}
+
+header h2 {
+  margin-left: -50px;
+}
+
+.stopwatch-card {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@font-face {
+  font-family: 'Digital';
+  src: local('Digital'), url('./fonts/digital.woff') format('woff');
+}
+
+.timer {
+  font-size: 5em;
+  font-family: Digital;
+  color: #298552;
+}
+
+.timer-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 40%;
+}
+
+button {
+  font-size: 20px;
+  font-family:Arial;
+  width:140px;
+  height:50px;
+  border-width:1px;
+  color:#fff;
+  border-color:#4b8f29;
+  font-weight:bold;
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  border-bottom-left-radius:4px;
+  border-bottom-right-radius:4px;
+  text-shadow: 0px 1px 0px #5b8a3c;
+  background-color: #298552;
+  margin: 50px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.btn10 {
+  transform: rotate(-5deg);
+}
+
+.btn8 {
+  margin-left: 20px;
+  margin-top: 10px;
+  transform: rotate(10deg);
+}
+
+.btn7 {
+  transform: rotate(-10deg);
+}
+
+.btn5 {
+  margin-left: 100px;
+  margin-top: 10px;
+  transform: rotate(-10deg);
+}
+
+.btn2 {
+  transform: rotate(-35deg);
+}
+
+.start {
+  width:180px;
+  height:70px;
+  font-size: 25px;
+  font-weight: 900;
+  margin-right: 30px;
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+footer h3 {
+  font-size: 2em;
+  margin-left: 400px;
+}
+
+h1, h2, h3 {
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.8);
 }
