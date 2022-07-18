@@ -12,6 +12,7 @@ function App() {
   const [timer, setTimer] = useState(600);
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
+  const [isFinished, setIsFinished] = useState(false);
   const increment = useRef(null);
 
   React.useEffect(() => {
@@ -20,6 +21,7 @@ function App() {
       setIsPaused(true);
       setIsActive(false);
       setTimer(600);
+      setIsFinished(true);
       const music = new Audio(arrayAudios[getDay()]);
       music.play();
     }
@@ -58,19 +60,25 @@ function App() {
       <div className="container">
         <Header />
         <div className="stopwatch-card">
-          <p className="timer">{formatTime()}</p>
-          <div className="timer-buttons">
-            <button type="button" className="btn10" onClick={() => setTimer(600)} disabled={isActive}>10 minutos</button>
-            <button type="button" className="btn8" onClick={() => setTimer(480)} disabled={isActive}>8 minutos</button>
-            <button type="button" className="btn7" onClick={() => setTimer(420)} disabled={isActive}>7 minutos</button>
-            <button type="button" className="btn5" onClick={() => setTimer(300)} disabled={isActive}>5 minutos</button>
-            <button type="button" className="btn2" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
-          </div>
-          <div className="buttons">
-            {
+          { isFinished ? <p className="x1">X1 NO VAVA HJ?</p>
+            : (
+              <>
+                <p className="timer">{formatTime()}</p>
+                <div className="timer-buttons">
+                  <button type="button" className="btn10" onClick={() => setTimer(600)} disabled={isActive}>10 minutos</button>
+                  <button type="button" className="btn8" onClick={() => setTimer(480)} disabled={isActive}>8 minutos</button>
+                  <button type="button" className="btn7" onClick={() => setTimer(420)} disabled={isActive}>7 minutos</button>
+                  <button type="button" className="btn5" onClick={() => setTimer(300)} disabled={isActive}>5 minutos</button>
+                  <button type="button" className="btn2" onClick={() => setTimer(2)} disabled={isActive}>2 segundos</button>
+                </div>
+                <div className="buttons">
+                  {
             renderButtons()
           }
-          </div>
+                </div>
+              </>
+            )}
+
         </div>
         <Footer />
       </div>
