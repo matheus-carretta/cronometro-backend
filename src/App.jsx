@@ -20,10 +20,10 @@ function App() {
       window.clearInterval(increment.current);
       setIsPaused(true);
       setIsActive(false);
-      setTimer(600);
-      setIsFinished(true);
       const music = new Audio(arrayAudios[getDay()]);
       music.play();
+      setTimer(600);
+      setIsFinished(true);
     }
   }, [timer]);
 
